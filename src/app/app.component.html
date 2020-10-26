@@ -1,0 +1,15 @@
+<div class="container-scroller">
+  <!-- Navigation bar -->
+  <app-navbar></app-navbar>
+
+  <!-- main app container -->
+   <!-- <div class="container"> -->
+    <div [@routeAnimation]="getAnimationData(routerOutlet)">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+    </div>
+  <!-- <router-outlet></router-outlet> -->
+   <!-- </div> -->
+  
+  <!-- footer -->
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,58 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+
+    <!-- LOGO NOT WORKING, CAN'T FIX SIZE DUE TO UNRECOGNIZED CSS, TODO -->
+    <!-- <img src="../../assets/cowork-logo_2.png" id="logo"> -->
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#">Co'Work</a></mdb-navbar-brand>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" routerLink="/" routerLinkActive="active" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/locations" routerLinkActive="active">Locations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/" routerLinkActive="active">Workspace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/" routerLinkActive="active">Services</a>
+        </li>
+  
+      </ul>
+      <!-- Links -->
+  
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/contact" routerLinkActive="active">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/plans" routerLinkActive="active" *ngIf="user">
+            <mdb-icon fas icon="gem"></mdb-icon>Upgrade</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <div class="btn-group" mdbDropdown>
+              <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
+              <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+                <a class="dropdown-item" routerLink="/login" routerLinkActive="active" *ngIf="!user">Log In</a>
+                <a class="dropdown-item" routerLink="/locations" routerLinkActive="active" *ngIf="!user">Sign Up</a>
+                <div class="divider dropdown-divider" *ngIf="!user"></div>
+                <a class="dropdown-item" *ngIf="user" (click)="logout()">Logout</a>
+                <a class="dropdown-item" routerLink="/" routerLinkActive="active" *ngIf="user">My bookings</a>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->
