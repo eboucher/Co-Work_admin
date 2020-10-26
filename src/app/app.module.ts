@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LocationsModule } from './locations';
-import { BookingModule } from './booking';
 import { AppComponent } from './app.component';
 
 import { FooterComponent } from './footer';
@@ -48,7 +47,6 @@ import * as $ from 'jquery'
     AppRoutingModule,
     FormsModule,
     LocationsModule,
-    BookingModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
