@@ -26,7 +26,15 @@
             <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.description}}</span>
           </td>
           <td>
-            <span (keyup)="changeValue()" (blur)="updateList()" contenteditable="true">{{workspace.avatar}}</span>
+            <span (keyup)="changeValue()" (blur)="updateList()" contenteditable="true">
+              <div class="view overlay flex-center">
+                <img src="http://localhost:1337{{workspace.avatar.url}}" alt="avatar mx-auto white" 
+                class="rounded-circle img-fluid" style="width: 80px; height: 75px">
+                <a [routerLink]="['/']" routerLinkActive="active">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </span>
           </td>
         </tr>
       </table>
