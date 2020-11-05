@@ -27,7 +27,7 @@ export class WorkspaceService {
     unlimitedDrinks: boolean,
     city: string,
     laptops: boolean,
-    rooms: string,
+    rooms: any,
     mondayOp: string,
     mondayCl: string,
     tuesdayOp: string,

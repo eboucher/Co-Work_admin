@@ -12,17 +12,17 @@
       <div class="col-md-12">
 
         <!-- Default form register -->
-        <form class="text-center" action="#!">
+        <form class="text-center" [formGroup]="form" (ngSubmit)="onSubmit()">
 
           <p class="h4 mb-4">Create Workspace</p>
 
           <p>Workspace Name</p>
-          <input type="name" id="defaultRegisterFormName" class="form-control mb-4" placeholder="Ex. 'Bastille'">
+          <input type="name" formControlName="name" class="form-control mb-4" placeholder="Ex. 'Bastille'">
           <p>City</p>
-          <input type="name" id="defaultRegisterFormName" class="form-control mb-4" placeholder="Ex. Lyon, France">
+          <input type="name" formControlName="city" class="form-control mb-4" placeholder="Ex. Lyon, France">
           <p>Description</p>
           <div class="md-form md-outline">
-            <textarea type="text" id="form75" class="form-control md-textarea" rows="3" mdbInput></textarea>
+            <textarea type="text" formControlName="description" class="form-control md-textarea" rows="3" mdbInput></textarea>
             <label for="form75">Description</label>
           </div>
           
@@ -32,86 +32,88 @@
           <div class="form-row mb-4">
             <div class="col">
               <!-- Opening -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Opening (Ex. 08:00)">
+              <input type="text" formControlName="mondayOp" class="form-control" placeholder="Opening (Ex. 08:00)">
             </div>
             <div class="col">
               <!-- Closing -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Closing (Ex. 22:00)">
+              <input type="text" formControlName="mondayCl" class="form-control" placeholder="Closing (Ex. 22:00)">
             </div>
           </div>
           <p>Tuesday</p>
           <div class="form-row mb-4">
             <div class="col">
               <!-- Opening -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Opening (Ex. 08:00)">
+              <input type="text" formControlName="tuesdayOp" class="form-control" placeholder="Opening (Ex. 08:00)">
             </div>
             <div class="col">
               <!-- Closing -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Closing (Ex. 22:00)">
+              <input type="text" formControlName="tuesdayCl" class="form-control" placeholder="Closing (Ex. 22:00)">
             </div>
           </div>
           <p>Wednesday</p>
           <div class="form-row mb-4">
             <div class="col">
               <!-- Opening -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Opening (Ex. 08:00)">
+              <input type="text" formControlName="wednesdayOp" class="form-control" placeholder="Opening (Ex. 08:00)">
             </div>
             <div class="col">
               <!-- Closing -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Closing (Ex. 22:00)">
+              <input type="text" formControlName="wednesdayCl" class="form-control" placeholder="Closing (Ex. 22:00)">
             </div>
           </div>
           <p>Thursday</p>
           <div class="form-row mb-4">
             <div class="col">
               <!-- Opening -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Opening (Ex. 08:00)">
+              <input type="text" formControlName="thursdayOp" class="form-control" placeholder="Opening (Ex. 08:00)">
             </div>
             <div class="col">
               <!-- Closing -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Closing (Ex. 22:00)">
+              <input type="text" formControlName="thursdayCl" class="form-control" placeholder="Closing (Ex. 22:00)">
             </div>
           </div>
           <p>Friday</p>
           <div class="form-row mb-4">
             <div class="col">
               <!-- Opening -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Opening (Ex. 08:00)">
+              <input type="text" formControlName="fridayOp" class="form-control" placeholder="Opening (Ex. 08:00)">
             </div>
             <div class="col">
               <!-- Closing -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Closing (Ex. 22:00)">
+              <input type="text" formControlName="fridayCl" class="form-control" placeholder="Closing (Ex. 22:00)">
             </div>
           </div>
           <p>Saturday</p>
           <div class="form-row mb-4">
             <div class="col">
               <!-- Opening -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Opening (Ex. 08:00)">
+              <input type="text" formControlName="saturdayOp" class="form-control" placeholder="Opening (Ex. 08:00)">
             </div>
             <div class="col">
               <!-- Closing -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Closing (Ex. 22:00)">
+              <input type="text" formControlName="saturdayCl" class="form-control" placeholder="Closing (Ex. 22:00)">
             </div>
           </div>
           <p>Sunday</p>
           <div class="form-row mb-4">
             <div class="col">
               <!-- Opening -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Opening (Ex. 08:00)">
+              <input type="text" formControlName="sundayOp" class="form-control" placeholder="Opening (Ex. 08:00)">
             </div>
             <div class="col">
               <!-- Closing -->
-              <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Closing (Ex. 22:00)">
+              <input type="text" formControlName="sundayCl" class="form-control" placeholder="Closing (Ex. 22:00)">
             </div>
           </div>
 
           <p>Meal Tray</p>
-          <input type="name" id="defaultRegisterFormName" class="form-control mb-4" placeholder="Either 'true' or 'false'">
+          <input type="name" class="form-control mb-4" formControlName="mealTray" placeholder="Either 'true' or 'false'">
           <p>Wi-Fi</p>
-          <input type="name" id="defaultRegisterFormName" class="form-control mb-4" placeholder="Either 'true' or 'false'">
+          <input type="name" class="form-control mb-4" formControlName="WiFi" placeholder="Either 'true' or 'false'">
           <p>Unlimited Drinks</p>
-          <input type="name" id="defaultRegisterFormName" class="form-control mb-4" placeholder="Either 'true' or 'false'">
+          <input type="name" class="form-control mb-4" formControlName="unlimitedDrinks" placeholder="Either 'true' or 'false'">
+          <p>Laptops</p>
+          <input type="name" class="form-control mb-4" formControlName="laptops" placeholder="Either 'true' or 'false'">
 
           <hr>
           <!-- Sign up button -->
