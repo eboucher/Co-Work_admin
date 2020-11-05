@@ -1,0 +1,60 @@
+<!--Main layout-->
+<main class="mt-5 pt-5">
+  <div class="container">
+
+    <!-- Section heading -->
+    <h3 class="text-center font-weight-bold mb-5">Bookings</h3>
+
+    <hr class="my-5">
+
+    <!--Section: Cards-->
+    <section class="text-center">
+
+      <!--Grid row-->
+      <div class="row mb-4 wow fadeIn justify-content-md-center" *ngFor="let booking of bookings; let i = index">
+
+        <!--Card-->
+        <div class="card col-12">
+
+          <!--Card content-->
+          <div class="card-body">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6">
+              <div class="col">
+                <h4>Booking no. {{ i + 1 }}</h4>
+              </div>
+              <div class="col">
+                <div class="row justify-content-md-center">Room</div>
+                <div class="row justify-content-md-center">{{ booking.room.name }}</div>
+              </div>
+              <div class="col">
+                <div class="row justify-content-md-center">Date</div>
+                <div class="row justify-content-md-center">{{ booking.date }}</div>
+              </div>
+              <div class="col">
+                <div class="row justify-content-md-center">Start</div>
+                <div class="row justify-content-md-center">{{ booking.start }}</div>
+              </div>
+              <div class="col">
+                <div class="row justify-content-md-center">End</div>
+                <div class="row justify-content-md-center">{{ booking.end }}</div>
+              </div>
+              <div class="col">
+                <a mdbBtn (click)="deleteBooking(booking.id)" routerLinkActive="active" mdbWavesEffect
+                  class="btn btn-primary btn-md" data-wow-delay="0.3s">Delete
+                </a> 
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--/.Card-->
+
+      </div>
+      <!--Grid row-->
+
+    </section>
+    <!--Section: Cards-->
+
+  </div>
+</main>
+<!--Main layout-->

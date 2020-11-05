@@ -30,6 +30,13 @@
   
       <ul class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/contact" routerLinkActive="active">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/plans" routerLinkActive="active" *ngIf="user">
+            <mdb-icon fas icon="gem"></mdb-icon>Upgrade</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link">
             <div class="btn-group" mdbDropdown>
               <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
@@ -37,6 +44,7 @@
                 <a class="dropdown-item" routerLink="/login" routerLinkActive="active" *ngIf="!user">Log In</a>
                 <a class="dropdown-item" routerLink="/locations" routerLinkActive="active" *ngIf="!user">Sign Up</a>
                 <div class="divider dropdown-divider" *ngIf="!user"></div>
+                <a class="dropdown-item" routerLink="/profile" routerLinkActive="active" *ngIf="user">Profile</a>
                 <a class="dropdown-item" *ngIf="user" (click)="logout()">Logout</a>
               </div>
             </div>

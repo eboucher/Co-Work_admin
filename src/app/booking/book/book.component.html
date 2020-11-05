@@ -1,0 +1,140 @@
+<div class="container mt-5" *ngIf="location">
+
+
+  <!--Section: Content-->
+  <section class="dark-grey-text">
+
+  	<div class="card">
+      <div class="card-body">
+
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-lg-8">
+
+            <!-- Pills navs -->
+            <ul class="nav nav-pills md-pills mb-3 nav-justified pills-primary font-weight-bold" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" role="tab"
+                [routerLink]="['/book/'+locationID+'/first-step']" routerLinkActive="active" mdbWavesEffect>1. Schedule booking</a>
+              </li>
+
+              <li class="nav-item" *ngIf="!this.bookingService.firstStepCompleted">
+                <a class="nav-link" data-toggle="tab" role="tab" mdbWavesEffect>2. Add services</a>
+              </li>
+              <li class="nav-item" *ngIf="this.bookingService.firstStepCompleted">
+                <a class="nav-link" data-toggle="tab" role="tab"
+                [routerLink]="['/book/'+locationID+'/second-step']" routerLinkActive="active" mdbWavesEffect>2. Add services</a>
+              </li>
+
+              <li class="nav-item" *ngIf="!this.bookingService.firstStepCompleted">
+                <a class="nav-link" data-toggle="tab" role="tab" mdbWavesEffect>3. Payment</a>
+              </li>
+              <li class="nav-item" *ngIf="this.bookingService.firstStepCompleted">
+                <a class="nav-link" data-toggle="tab" role="tab"
+                [routerLink]="['/book/'+locationID+'/third-step']" routerLinkActive="active" mdbWavesEffect>3. Payment</a>
+              </li>
+            </ul>
+
+            <!-- Pills panels -->
+            <div class="tab-content pt-4">
+
+              <!-- <app-first-step></app-first-step> -->
+              <router-outlet></router-outlet>
+
+            </div>
+            <!-- Pills panels -->
+
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-4 mb-4">
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="true">Place order</button>
+
+            <!--Card-->
+            <div class="card z-depth-0 border border-light rounded-0">
+
+              <!--Card content-->
+              <div class="card-body">
+                <h4 class="mb-4 mt-1 h5 text-center font-weight-bold">Summary</h4>
+
+                <hr>
+                <dl class="row" *ngIf="location.name">
+                  <dd class="col">
+                    Location
+                  </dd>
+                  <dd class="col-6">
+                    {{location.name}}
+                  </dd>
+                </dl>
+                
+                <dl class="row" *ngIf="this.booking.date">
+                  <dd class="col">
+                    Date
+                  </dd>
+                  <dd class="col-6">
+                    {{booking.date}}
+                  </dd>
+                </dl>
+                
+                <dl class="row" *ngIf="this.booking.start">
+                  <dd class="col">
+                    From
+                  </dd>
+                  <dd class="col-6">
+                    {{booking.start}}
+                  </dd>
+                </dl>
+                
+                <dl class="row" *ngIf="this.booking.end">
+                  <dd class="col">
+                    Until
+                  </dd>
+                  <dd class="col-6">
+                    {{booking.end}}
+                  </dd>
+                </dl>
+                
+                <dl class="row" *ngIf="this.booking.room">
+                  <dd class="col">
+                    Room
+                  </dd>
+                  <dd class="col-6">
+                    {{booking.room}}
+                  </dd>
+                </dl>
+
+                <hr *ngIf="this.bookingService.firstStepCompleted">
+                <dl class="row" *ngIf="this.bookingService.firstStepCompleted">
+                  <dd class="col">
+                    Total
+                  </dd>
+                  <dd class="col-6">
+                    20 €
+                  </dd>
+                </dl>
+
+              </div>
+
+            </div>
+            <!--/.Card-->
+
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+      
+    </div>
+
+  </section>
+  <!--Section: Content-->
+
+
+</div>

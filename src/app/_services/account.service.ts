@@ -5,23 +5,21 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
-import { User } from '@app/_models';
+import { Booking, User } from '@app/_models';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
 
-    constructor(
-        private router: Router,
-        private http: HttpClient
-    ) {
+    constructor(private router: Router, private http: HttpClient) 
+    {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
     }
 
     public get userValue(): User {
-        console.log(this.userSubject.value);
+        //console.log(this.userSubject.value);
         return this.userSubject.value;
     }
 
@@ -29,9 +27,10 @@ export class AccountService {
         return this.http.post<User>('http://localhost:1337/auth/local', { identifier: username, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                return user;
+                localStorage.setItem('user', JSON.stringify(user.user));
+                localStorage.setItem('jwt', user.jwt);
+                this.userSubject.next(user.user);
+                return user.user;
             }));
     }
 
@@ -79,5 +78,20 @@ export class AccountService {
                 }
                 return x;
             }));
+    }
+
+    deleteBooking(bookingID: string): any {
+      return this.http.delete<Booking>(`${environment.apiUrl}/bookings/${bookingID}`)
+        .pipe(map(resp => {
+          console.log(resp);
+        }));
+    }
+
+    getUserBookings(userID: string):any {
+        return this.http.get<Booking[]>(`${environment.apiUrl}/bookings?user.id=${userID}`)
+          .pipe(map(resp => {
+            console.log(resp);
+            return resp;
+          }));
     }
 }

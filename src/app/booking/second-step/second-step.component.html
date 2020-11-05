@@ -1,0 +1,86 @@
+<!--Panel 2-->
+<div class="tab-pane fade in show active" id="second-step" role="tabpanel">
+
+  <!--Grid row-->
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-md-5 mb-4">
+
+      <img src="http://www.pngall.com/wp-content/uploads/2016/05/Laptop-Free-Download-PNG.png" class="img-fluid z-depth-1-half"
+        alt="Second sample image">
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-md-7 mb-4">
+
+      <h5 class="mb-3 h5">Laptop</h5>
+
+      <p>We lend laptops that track all the shit you do on it, just in case you try to fuck it up. They are also pretty lame,
+        again just in case you mess it up.
+      </p>
+
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li *ngIf="!this.booking.laptop" class="nav-item">
+          <button type="button" (click)="addLaptop()" class="btn btn-primary btn-md">Add to order</button>
+        </li>
+        <li *ngIf="this.booking.laptop" class="nav-item">
+          <button type="button" (click)="removeLaptop()" class="btn btn-primary btn-md">Remove from order</button>
+        </li>
+      </ul>
+
+      <!-- <button type="button" (click)="addLaptop()" class="btn btn-primary btn-md">Add to order</button> -->
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+  <hr class="mb-5">
+
+  <!--Grid row-->
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-md-5 mb-4">
+
+      <img src="https://i.ytimg.com/vi/A9dhZKSSelg/maxresdefault.jpg" class="img-fluid z-depth-1-half"
+        alt="Second sample image">
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-md-7 mb-4">
+
+      <h5 class="mb-3 h5">Meal tray</h5>
+
+      <p>Let us surprise you with our healty and tasty meal tray, it's so amazing you won't believe it. Tremendous!</p>
+
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li *ngIf="!this.booking.mealTray" class="nav-item">
+          <button type="button" (click)="addMealTray()" class="btn btn-primary btn-md">Add to order</button>
+        </li>
+        <li *ngIf="this.booking.mealTray" class="nav-item">
+          <button type="button" (click)="removeMealTray()" class="btn btn-primary btn-md">Remove from order</button>
+        </li>
+      </ul>
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+  <hr class="mb-4">
+
+
+  <a mdbBtn [routerLink]="['/book/'+location._id+'/third-step']" routerLinkActive="active" mdbWavesEffect
+  class="btn btn-primary btn-lg btn-block" data-wow-delay="0.3s">Next step
+  </a>
+
+</div>
+<!--/.Panel 2-->

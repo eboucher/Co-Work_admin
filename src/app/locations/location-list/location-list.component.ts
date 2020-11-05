@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-//import * as data from "/home/esteban/Documents/ESGI/2-PA_R/Co-Work_admin/db.json";
+//import * as data from "/home/esteban/Documents/ESGI/2-PA_R/Co-Work_web/db.json";
 
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 
 import { LocationService } from '../location.service';
-import { Location } from '../location';
+import { Workspace } from '@app/_models/workspace';
 
 @Component({
   selector: 'app-location-list',
@@ -17,7 +17,7 @@ import { Location } from '../location';
 })
 export class LocationListComponent implements OnInit {
 
-  locations$: Observable<Location[]>;
+  locations$: Observable<Workspace[]>;
   selectedId: string;
 
   //locations : any[] = data.locations;
@@ -26,16 +26,15 @@ export class LocationListComponent implements OnInit {
   });
 
   constructor(
-    private service: LocationService,
+    private locationService: LocationService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     this.locations$ = this.route.paramMap.pipe(
       switchMap(params => {
-        // (+) before `params.get()` turns the string into a number
         this.selectedId = params.get('id');
-        return this.service.getLocations();
+        return this.locationService.getLocations();
       })
     );
   }

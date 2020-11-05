@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LocationsModule } from './locations';
+import { BookingModule } from './booking';
 import { AppComponent } from './app.component';
-
+import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './footer';
 import { NavbarComponent } from './navbar';
 import { HomeComponent } from './home';
@@ -24,11 +25,11 @@ import { AlertComponent } from './_components';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact/contact.component';
 
-import * as $ from 'jquery'
+import * as $ from 'jquery';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -40,24 +41,24 @@ import * as $ from 'jquery'
     RegisterComponent,
     AlertComponent,
     PlansComponent,
-    ContactComponent
+    ContactComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     LocationsModule,
+    BookingModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-    // provider used to create fake backend
-    fakeBackendProvider
 ],
   bootstrap: [ AppComponent ]
 })

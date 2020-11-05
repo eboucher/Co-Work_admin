@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Location } from './location';
-import { LOCATIONS } from './mock-locations';
+import { Workspace } from '@app/_models/workspace';
 import { MessageService } from '../message.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,21 +12,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LocationService {
 
+  location: any;
+
   constructor(private http: HttpClient) { }
 
-  private _url : string = 'http://localhost:1337/workspaces'
+  private _url : string = 'http://localhost:1337/workspaces/'
 
-  getLocations(): Observable<Location[]> {
-    // TODO: send the message _after_ fetching the locations
-    //this.messageService.add('LocationService: fetched locations');
-    //return of(LOCATIONS);
-    return this.http.get<Location[]>(this._url);
+  getLocationByID(id: string) : any {
+    return this.http.get<Workspace[]>(this._url+id)
+      .pipe(map(resp => {
+        this.location = resp;
+        return resp;
+      }));
   }
 
-  getLocation(id: number | string): Observable<Location> {
+  getLocations(): Observable<Workspace[]> {
+    return this.http.get<Workspace[]>(this._url);
+  }
+
+  getLocation(id: number | string): Observable<Workspace> {
     return this.getLocations().pipe(
-      // (+) before `id` turns the string into a number
-      map((locations: Location[]) => locations.find(location => location._id === id))
+      map((locations: Workspace[]) => locations.find(location => location.id === id))
     );
   }
 }
