@@ -28,7 +28,6 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact/contact.component';
 
-import * as $ from 'jquery';
 import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
@@ -54,7 +53,7 @@ import { ProfileComponent } from './profile/profile.component'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

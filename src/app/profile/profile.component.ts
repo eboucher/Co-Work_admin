@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
     this.bookings = [];
     this.accountService.getUserBookings(this.user.id).subscribe(e => 
       this.bookings = e);
-      console.log("this.bookings[] = " + this.bookings);
   }
 
   deleteBooking(bookingID) {

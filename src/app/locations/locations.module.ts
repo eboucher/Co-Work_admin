@@ -7,7 +7,8 @@ import { LocationDetailComponent } from './location-detail';
 
 import { LocationsRoutingModule } from './locations-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { LocationEditComponent } from './location-edit/location-edit.component';
+import { LocationEditComponent } from './location-edit';
+import { LocationCreateComponent } from './location-create';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LocationEditComponent } from './location-edit/location-edit.component';
   declarations: [
     LocationListComponent,
     LocationDetailComponent,
-    LocationEditComponent
+    LocationEditComponent,
+    LocationCreateComponent
   ]
 })
 export class LocationsModule { }

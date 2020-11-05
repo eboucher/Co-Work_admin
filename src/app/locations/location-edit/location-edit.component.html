@@ -1,1 +1,106 @@
-<p>location-edit works!</p>
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Edit {{workspace.name}} Workspace</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <a class="text-success" (click)="add()">
+          <mdb-icon fas icon="plus" size="2x"></mdb-icon>
+        </a>
+      </span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Workspace Name</th>
+          <th class="text-center">City</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Avatar</th>
+        </tr>
+        <tr>
+          <td>
+            <span (keyup)="changeValue()" (blur)="updateList()" contenteditable="true">{{workspace.name}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.city}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.description}}</span>
+          </td>
+          <td>
+            <span (keyup)="changeValue()" (blur)="updateList()" contenteditable="true">{{workspace.avatar}}</span>
+          </td>
+        </tr>
+      </table>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Timetable</th>
+          <th class="text-center">Monday</th>
+          <th class="text-center">Tuesday</th>
+          <th class="text-center">Wednesday</th>
+          <th class="text-center">Thursday</th>
+          <th class="text-center">Friday</th>
+          <th class="text-center">Saturday</th>
+          <th class="text-center">Sunday</th>
+        </tr>
+        <tr>
+          <td>
+            <span>Opening</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.mondayOp}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.tuesdayOp}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.wednesdayOp}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.thursdayOp}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.fridayOp}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.saturdayOp}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.sundayOp}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span>Closing</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.mondayCl}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.tuesdayCl}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.wednesdayCl}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.thursdayCl}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.fridayCl}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.saturdayCl}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue()" (blur)="updateList()">{{workspace.sundayCl}}</span>
+          </td>
+        </tr>
+      </table>
+      
+      <div class="container">
+          <button class="btn-info col-md-12" mdbBtn type="button" rounded="true" (click)="submitChanges()"
+          [routerLink]="['/']" routerLinkActive="active" mdbWavesEffect data-wow-delay="0.3s">
+            Edit workspace</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->

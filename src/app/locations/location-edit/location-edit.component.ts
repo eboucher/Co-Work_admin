@@ -19,14 +19,27 @@ export class LocationEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      console.log('The id of this route is: ', params.id);
       this.workspaceID = params.id;
     });
     this.workspaceService.getWorkspaceByID(this.workspaceID).subscribe(e => {
-      console.log("RÉPONSE e = " + e),
-      this.workspace = e,
-      console.log("this.workspace = " + this.workspace)
-    });
+        this.workspace = e
+      });
+  }
+
+  updateList() {
+
+  }
+
+  submitChanges() {
+    
+  }
+
+  add() {
+    
+  }
+
+  changeValue() {
+    
   }
 
 }
